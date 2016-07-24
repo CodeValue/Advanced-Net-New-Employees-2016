@@ -12,6 +12,7 @@
         <Button Content="Do Heavy Operation"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
+                x:Name="Button"
                 Click="ButtonBase_OnClick"></Button>
     </Grid>
 </Window>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.25428.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesExamples", "DelegatesExamples\DelegatesExamples.csproj", "{96B69E12-4296-4E85-AEC3-68C2FD7DFFF2}"
 EndProject
@@ -18,6 +18,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPL-Continuation", "TPL-Continuation\TPL-Continuation.csproj", "{C8C265C7-120B-4130-A893-E31626126413}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cancellation", "Cancellation\Cancellation.csproj", "{AED54520-55AB-483E-AC16-1CBD187B0C2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPL-UnobservedException", "TPL-UnobservedException\TPL-UnobservedException.csproj", "{986FDF1B-B3AB-4133-9808-0AA7EA221D1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPL-TaskCreation", "TPL-TaskCreation\TPL-TaskCreation.csproj", "{102202B1-C8CA-4946-B467-FCF6332A1CF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadStatic", "ThreadStatic\ThreadStatic.csproj", "{6D5D9076-0649-4C87-840F-312A9B4C10FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncWait", "AsyncWait\AsyncWait.csproj", "{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +65,22 @@ Global
 		{AED54520-55AB-483E-AC16-1CBD187B0C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AED54520-55AB-483E-AC16-1CBD187B0C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AED54520-55AB-483E-AC16-1CBD187B0C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{986FDF1B-B3AB-4133-9808-0AA7EA221D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{986FDF1B-B3AB-4133-9808-0AA7EA221D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{986FDF1B-B3AB-4133-9808-0AA7EA221D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{986FDF1B-B3AB-4133-9808-0AA7EA221D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{102202B1-C8CA-4946-B467-FCF6332A1CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{102202B1-C8CA-4946-B467-FCF6332A1CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{102202B1-C8CA-4946-B467-FCF6332A1CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{102202B1-C8CA-4946-B467-FCF6332A1CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D5D9076-0649-4C87-840F-312A9B4C10FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D5D9076-0649-4C87-840F-312A9B4C10FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D5D9076-0649-4C87-840F-312A9B4C10FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D5D9076-0649-4C87-840F-312A9B4C10FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

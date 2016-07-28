@@ -50,7 +50,8 @@ namespace SyncrhonizationContextExample
             var schoolLogic = new SchoolLogic();
             Button.IsEnabled = false;
             MyTextBlock.Text = "Starting the heavy operation";
-            var report=await schoolLogic.GenerateReportAsync();
+            //var report = await schoolLogic.GenerateReportAsync();
+            var report = await Task.Run(()=>schoolLogic.GenerateReport());
             MyTextBlock.Text = $"Finished the heavy operation, report has {report.Count()} records";
             Button.IsEnabled = true;
         }
@@ -58,6 +59,11 @@ namespace SyncrhonizationContextExample
 
     class SchoolLogic
     {
+        public IEnumerable<Grade> GenerateReport()
+        {
+            Thread.Sleep(5000);
+            return Enumerable.Empty<Grade>();
+        }
         public async Task<IEnumerable<Grade>> GenerateReportAsync()
         {
             var managedThreadId1 = Thread.CurrentThread.ManagedThreadId;
@@ -76,20 +82,20 @@ namespace SyncrhonizationContextExample
                 {
                     grades = Enumerable.Empty<Grade>();
                 }
-                var avg= grades.Select(g=>g.TheGrade).Average();
+                var avg = grades.Select(g => g.TheGrade).Average();
                 report.Add(new Grade(avg));
             }
             return report;
         }
 
-        private Task<IEnumerable<Grade>>  GetGradesAsync(string name)
+        private Task<IEnumerable<Grade>> GetGradesAsync(string name)
         {
-            return Task.FromResult(new[] {new Grade(100)}.AsEnumerable());
+            return Task.FromResult(new[] { new Grade(100) }.AsEnumerable());
         }
 
-        private  Task<IEnumerable<Course>>  GetStudentCoursesAsync()
+        private Task<IEnumerable<Course>> GetStudentCoursesAsync()
         {
-            return Task.Run(()=> { return new[] {new Course {Name = "Infi1"}}.AsEnumerable(); });
+            return Task.Run(() => { return new[] { new Course { Name = "Infi1" } }.AsEnumerable(); });
         }
     }
 

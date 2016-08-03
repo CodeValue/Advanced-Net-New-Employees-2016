@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadStatic", "ThreadStati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncWait", "AsyncWait\AsyncWait.csproj", "{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finalizer", "Finalizer\Finalizer.csproj", "{D850516A-BA48-44C3-A61F-6412B2CBF9B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsAndReferences", "EventsAndReferences\EventsAndReferences.csproj", "{74990146-9A96-4482-A817-9A50E581B5CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13DB41F5-BE89-4CA9-8925-9CA5C0DF0631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D850516A-BA48-44C3-A61F-6412B2CBF9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D850516A-BA48-44C3-A61F-6412B2CBF9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D850516A-BA48-44C3-A61F-6412B2CBF9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D850516A-BA48-44C3-A61F-6412B2CBF9B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74990146-9A96-4482-A817-9A50E581B5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74990146-9A96-4482-A817-9A50E581B5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74990146-9A96-4482-A817-9A50E581B5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74990146-9A96-4482-A817-9A50E581B5CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

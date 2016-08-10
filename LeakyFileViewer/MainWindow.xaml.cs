@@ -24,7 +24,7 @@ namespace LeakyFileViewer
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Dictionary<string,FileHandler> _filesCache=new Dictionary<string, FileHandler>();
+        static Dictionary<string, FileHandler> _filesCache = new Dictionary<string, FileHandler>();
         private FileHandler _currFileHandler;
         public MainWindow()
         {
@@ -50,6 +50,14 @@ namespace LeakyFileViewer
             {
                 var fileHandler = new FileHandler(filePath);
                 fileHandler.ContentChanged += FileHandler_ContentChanged;
+                if (_filesCache.Count == 2)
+                {
+                    var lastKey = _filesCache.Keys.Last();
+                    var handler = _filesCache[lastKey];
+                    handler.ContentChanged -= FileHandler_ContentChanged;
+                    handler.Dispose();
+                    _filesCache.Remove(lastKey);
+                }
                 _filesCache.Add(filePath, fileHandler);
             }
 
@@ -59,34 +67,64 @@ namespace LeakyFileViewer
 
         private void FileHandler_ContentChanged(object sender, string newContent)
         {
-            if (sender==_currFileHandler)
+            if (sender == _currFileHandler)
             {
-                FileContent.Text = newContent;
+                Dispatcher.Invoke(() => FileContent.Text = newContent);
             }
         }
 
-       
+
     }
 
-    internal class FileHandler
+    internal class FileHandler : IDisposable
     {
         private readonly string _path;
         private readonly FileSystemWatcher _fileSystemWatcher;
+        private bool _disposed;
         public event EventHandler<string> ContentChanged;
 
         public FileHandler(string path)
         {
             _path = path;
-            Content=File.ReadAllText(path);
-            _fileSystemWatcher = new FileSystemWatcher(Path.GetDirectoryName(path),Path.GetFileName(path));
-            _fileSystemWatcher.Changed += (_, __) =>
-            {
-                Content= File.ReadAllText(path); 
-                ContentChanged?.Invoke(this, Content);
-            };
+            Content = File.ReadAllText(path);
+            var directoryName = Path.GetDirectoryName(path);
+            _fileSystemWatcher = new FileSystemWatcher(directoryName, Path.GetFileName(path));
+            _fileSystemWatcher.Changed += FileSystemWatcherOnChanged;
+            _fileSystemWatcher.EnableRaisingEvents = true;
         }
-        
+
+        private void FileSystemWatcherOnChanged(object sender, FileSystemEventArgs fileSystemEventArgs)
+        {
+            bool shouldTryAgain = true;//we might get the notification while the file is locked
+            while (shouldTryAgain)
+            {
+                try
+                {
+
+                    Content = File.ReadAllText(_path);
+                    ContentChanged?.Invoke(this, Content);
+                    shouldTryAgain = false;
+                }
+                catch (IOException ex)
+                {
+                    //swallow exception so we'll try again
+                }
+            }
+        }
+
 
         public string Content { get; set; }
+        public void Dispose()
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            _fileSystemWatcher.Changed -= FileSystemWatcherOnChanged;
+            _disposed = true;
+        }
+
+
     }
 }

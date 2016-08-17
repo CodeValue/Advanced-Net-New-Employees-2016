@@ -1,16 +1,13 @@
-﻿
-using System;
+﻿using System;
 
-namespace ProductsApp.Models
+namespace ProductAppClient
 {
-    public class Product
+    class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public double Price { get; set; }
         public string Category { get; set; }
-        public decimal Price { get; set; }
         public DateTime LastUpdate { get; set; }
     }
-
-
 }
